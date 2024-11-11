@@ -1,7 +1,7 @@
 class Class1{
     public static void main(String arg[]){
         System.out.println("Hellow World");
-                // Integer types
+        // Integer types
         byte byteVar = 127;
         short shortVar = 32767;
         int intVar = 2147483647;
