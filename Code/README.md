@@ -243,7 +243,7 @@ System.out.println("After -= : " + a); // Output: 12
   - Find the remainder of `x` when divided by 3 using `%=`.
 - Print `x` after each operation.
 
-
+# Class 3
 ### 3. Comparison Operators
 Comparison operators are used to compare two values. The result is a boolean (true or false).
 
