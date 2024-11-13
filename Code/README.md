@@ -243,6 +243,20 @@ System.out.println("After -= : " + a); // Output: 12
   - Find the remainder of `x` when divided by 3 using `%=`.
 - Print `x` after each operation.
 
+**Task:** 
+Calculate Total and Discounted Price
+
+- Declare and Initialize Variables:
+    - Declare a double variable named price and assign it a value of 200.0 (representing the original price of an item).
+    - Declare an int variable named quantity and set it to 3 (representing the number of items bought).
+    - Declare a double variable named discount and assign it a value of 0.1 (representing a 10% discount).
+- Calculate Total Price:
+    - Use arithmetic and assignment operators to calculate the total price by multiplying price by quantity. Store the result back in price using an assignment operator.
+- Apply Discount:
+    - Use an arithmetic operator to calculate a 10% discount on the price and then use the assignment operator to subtract this discount from price.
+- Output the Final Price:
+    - Print the final value of price, which should show the total amount after applying the discount.
+
 # Class 3
 ### 3. Comparison Operators
 Comparison operators are used to compare two values. The result is a boolean (true or false).
