@@ -494,38 +494,170 @@ The program should take an integer input for marks (0 to 100) and assign grades 
 Additionally, check if the input is valid (between 0 and 100). If it's not valid, display an error message.
 
 ---
+# Step-by-Step Guide: Creating a Simple Login System with Java Swing  
 
-### Code Implementation  
+This guide will walk you through the process of creating a simple login system using **Java Swing**. The program will validate the username and password using **if-else statements**.
+
+---
+
+### Step 1: Set Up the Frame  
+
+#### Code Example  
+Create a `JFrame` to hold the components of the login system.  
 
 ```java
-import java.util.Scanner;
+import javax.swing.*;
 
-public class StudentGrade {
+public class LoginSystem {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        // Create the frame
+        JFrame frame = new JFrame("Login System");
+        frame.setSize(300, 200);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(null);
 
-        // Input: Marks
-        System.out.print("Enter the student's marks (0-100): ");
-        int marks = scanner.nextInt();
-
-        // Using Nested if-else and else-if ladder
-        if (marks >= 0 && marks <= 100) { // Valid marks
-            if (marks >= 90) {
-                System.out.println("Grade: A");
-            } else if (marks >= 80) {
-                System.out.println("Grade: B");
-            } else if (marks >= 70) {
-                System.out.println("Grade: C");
-            } else if (marks >= 60) {
-                System.out.println("Grade: D");
-            } else {
-                System.out.println("Grade: F");
-            }
-        } else {
-            // Invalid input
-            System.out.println("Error: Marks must be between 0 and 100.");
-        }
-
-        scanner.close();
+        frame.setVisible(true);
     }
 }
+```
+**Explanation**
+- JFrame: A top-level container for building GUI applications.
+- setSize(): Sets the size of the frame (width, height).
+- setDefaultCloseOperation(): Ensures the application exits when the frame is closed.
+- setLayout(null): Enables manual positioning of components.
+### Step 2: Add Input Fields
+#### Code Example
+Add fields for username and password to the frame.
+```java
+// Add Username Label and Text Field
+JLabel userLabel = new JLabel("Username:");
+userLabel.setBounds(20, 20, 80, 25);
+frame.add(userLabel);
+
+JTextField userField = new JTextField();
+userField.setBounds(100, 20, 160, 25);
+frame.add(userField);
+
+// Add Password Label and Password Field
+JLabel passLabel = new JLabel("Password:");
+passLabel.setBounds(20, 60, 80, 25);
+frame.add(passLabel);
+
+JPasswordField passField = new JPasswordField();
+passField.setBounds(100, 60, 160, 25);
+frame.add(passField);
+```
+**Explanation**
+- JLabel: Displays text such as "Username" and "Password".
+- JTextField: Input field for entering text (e.g., username).
+- JPasswordField: Input field that masks input (e.g., password).
+- setBounds(): Positions the components within the frame.
+
+### Step 3: Add Buttons
+#### Code Example
+Add "Login" and "Cancel" buttons to the frame.
+```java
+// Add Login Button
+JButton loginButton = new JButton("Login");
+loginButton.setBounds(50, 100, 80, 25);
+frame.add(loginButton);
+
+// Add Cancel Button
+JButton cancelButton = new JButton("Cancel");
+cancelButton.setBounds(150, 100, 80, 25);
+frame.add(cancelButton);
+```
+**Explanation**
+- JButton: Represents a clickable button.
+- setBounds(): Positions the buttons.
+
+### Step 4: Implement Button Actions
+#### Code Example
+Add an action listener to the "Login" button to validate the input using if-else.
+```java
+loginButton.addActionListener(e -> {
+    String username = userField.getText();
+    String password = String.valueOf(passField.getPassword());
+
+    // Simple Validation
+    if (username.equals("admin") && password.equals("1234")) {
+        JOptionPane.showMessageDialog(frame, "Login Successful!");
+    } else if (username.isEmpty() || password.isEmpty()) {
+        JOptionPane.showMessageDialog(frame, "Fields cannot be empty!");
+    } else {
+        JOptionPane.showMessageDialog(frame, "Invalid Username or Password!");
+    }
+});
+
+```
+
+**Explanation** 
+- getText(): Retrieves the text from the username field.
+- getPassword(): Retrieves the password from the password field.
+- JOptionPane: Displays popup messages for success or errors.
+- addActionListener(): Defines the actions performed when a button is clicked.
+
+### Step 5: Complete Program
+#### Full Code
+```java
+import javax.swing.*;
+
+public class LoginSystem {
+    public static void main(String[] args) {
+        // Create the frame
+        JFrame frame = new JFrame("Login System");
+        frame.setSize(300, 200);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(null);
+
+        // Add Username Label and Text Field
+        JLabel userLabel = new JLabel("Username:");
+        userLabel.setBounds(20, 20, 80, 25);
+        frame.add(userLabel);
+
+        JTextField userField = new JTextField();
+        userField.setBounds(100, 20, 160, 25);
+        frame.add(userField);
+
+        // Add Password Label and Password Field
+        JLabel passLabel = new JLabel("Password:");
+        passLabel.setBounds(20, 60, 80, 25);
+        frame.add(passLabel);
+
+        JPasswordField passField = new JPasswordField();
+        passField.setBounds(100, 60, 160, 25);
+        frame.add(passField);
+
+        // Add Login Button
+        JButton loginButton = new JButton("Login");
+        loginButton.setBounds(50, 100, 80, 25);
+        frame.add(loginButton);
+
+        // Add Cancel Button
+        JButton cancelButton = new JButton("Cancel");
+        cancelButton.setBounds(150, 100, 80, 25);
+        frame.add(cancelButton);
+
+        // Add Action Listeners
+        loginButton.addActionListener(e -> {
+            String username = userField.getText();
+            String password = String.valueOf(passField.getPassword());
+
+            if (username.equals("admin") && password.equals("1234")) {
+                JOptionPane.showMessageDialog(frame, "Login Successful!");
+            } else if (username.isEmpty() || password.isEmpty()) {
+                JOptionPane.showMessageDialog(frame, "Fields cannot be empty!");
+            } else {
+                JOptionPane.showMessageDialog(frame, "Invalid Username or Password!");
+            }
+        });
+
+        cancelButton.addActionListener(e -> {
+            userField.setText("");
+            passField.setText("");
+        });
+
+        frame.setVisible(true);
+    }
+}
+```
