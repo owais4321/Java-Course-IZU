@@ -393,3 +393,90 @@ System.out.println("Bitwise XOR: " + (a ^ b));  // Output: 6 (Binary: 0110)
   - Bitwise Complement: `~a`
   - Left Shift: `a << 1`
   - Right Shift: `a >> 1`
+# Class 4
+## If-Else Statements in Java
+In Java, if-else statements are used to execute different blocks of code based on certain conditions. They enable decision-making within a program.
+### 1. If Statement
+The if statement checks a condition and executes the code block if the condition evaluates to true.
+``` java
+Copy code
+if (condition) {
+    // Code to execute if condition is true
+}
+```
+**Example**
+```java
+int age = 18;
+if (age >= 18) {
+    System.out.println("You are eligible to vote.");
+}
+```
+
+### 2. If-Else Statement
+The if-else statement provides an alternative block of code to execute if the condition is false.
+
+``` java
+if (condition) {
+    // Code to execute if condition is true
+} else {
+    // Code to execute if condition is false
+}
+```
+**Example**
+``` java
+int age = 16;
+if (age >= 18) {
+    System.out.println("You are eligible to vote.");
+} else {
+    System.out.println("You are not eligible to vote.");
+}
+```
+### 3. Else-If Ladder
+The else-if ladder is used to test multiple conditions in sequence. Only the first true condition's block of code is executed.
+```java
+if (condition1) {
+    // Code to execute if condition1 is true
+} else if (condition2) {
+    // Code to execute if condition2 is true
+} else {
+    // Code to execute if all conditions are false
+}
+```
+**Example**
+``` java
+int score = 85;
+if (score >= 90) {
+    System.out.println("Grade: A");
+} else if (score >= 75) {
+    System.out.println("Grade: B");
+} else {
+    System.out.println("Grade: C");
+}
+```
+### 4. Nested If-Else
+An if or else block can contain another if-else statement, creating a nested structure.
+``` java
+if (condition1) {
+    if (condition2) {
+        // Code to execute if both condition1 and condition2 are true
+    } else {
+        // Code to execute if condition1 is true and condition2 is false
+    }
+} else {
+    // Code to execute if condition1 is false
+}
+```
+**Example**
+``` java
+int age = 20;
+boolean hasID = true;
+if (age >= 18) {
+    if (hasID) {
+        System.out.println("You may enter.");
+    } else {
+        System.out.println("Please show your ID.");
+    }
+} else {
+    System.out.println("You are underage.");
+}
+```
