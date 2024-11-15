@@ -480,3 +480,52 @@ if (age >= 18) {
     System.out.println("You are underage.");
 }
 ```
+### Task: Determine Student Grade Based on Marks
+
+#### Problem Statement  
+The program should take an integer input for marks (0 to 100) and assign grades based on the following criteria:
+
+- Marks ≥ 90: Grade **A**
+- Marks ≥ 80 and < 90: Grade **B**
+- Marks ≥ 70 and < 80: Grade **C**
+- Marks ≥ 60 and < 70: Grade **D**
+- Marks < 60: Grade **F**  
+
+Additionally, check if the input is valid (between 0 and 100). If it's not valid, display an error message.
+
+---
+
+### Code Implementation  
+
+```java
+import java.util.Scanner;
+
+public class StudentGrade {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input: Marks
+        System.out.print("Enter the student's marks (0-100): ");
+        int marks = scanner.nextInt();
+
+        // Using Nested if-else and else-if ladder
+        if (marks >= 0 && marks <= 100) { // Valid marks
+            if (marks >= 90) {
+                System.out.println("Grade: A");
+            } else if (marks >= 80) {
+                System.out.println("Grade: B");
+            } else if (marks >= 70) {
+                System.out.println("Grade: C");
+            } else if (marks >= 60) {
+                System.out.println("Grade: D");
+            } else {
+                System.out.println("Grade: F");
+            }
+        } else {
+            // Invalid input
+            System.out.println("Error: Marks must be between 0 and 100.");
+        }
+
+        scanner.close();
+    }
+}
