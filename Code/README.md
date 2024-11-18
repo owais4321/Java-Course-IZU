@@ -552,7 +552,7 @@ frame.add(passField);
 - JTextField: Input field for entering text (e.g., username).
 - JPasswordField: Input field that masks input (e.g., password).
 - setBounds(): Positions the components within the frame.
-
+# Class 5
 ### Step 3: Add Buttons
 #### Code Example
 Add "Login" and "Cancel" buttons to the frame.
