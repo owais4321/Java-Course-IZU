@@ -399,7 +399,7 @@ In Java, if-else statements are used to execute different blocks of code based o
 ### 1. If Statement
 The if statement checks a condition and executes the code block if the condition evaluates to true.
 ``` java
-Copy code
+
 if (condition) {
     // Code to execute if condition is true
 }
@@ -660,4 +660,94 @@ public class LoginSystem {
         frame.setVisible(true);
     }
 }
+```
+# Class 7
+## String Functions in Java
+### length()
+- Returns the number of characters in the string.
+```java
+String str = "Hello";
+System.out.println(str.length()); // Output: 5
+```
+
+### charAt(int index)
+- Returns the character at the specified index.
+
+```java
+String str = "Hello";
+System.out.println(str.charAt(1)); // Output: e
+```
+
+### substring(int beginIndex) / substring(int beginIndex, int endIndex)
+- Extracts a part of the string.
+```java
+String str = "Hello";
+System.out.println(str.substring(1)); // Output: ello
+System.out.println(str.substring(1, 4)); // Output: ell
+```
+### contains(CharSequence s)
+- Checks if the string contains a sequence of characters.
+```java
+String str = "Hello World";
+System.out.println(str.contains("World")); // Output: true
+```
+
+### indexOf(String str) / indexOf(String str, int fromIndex)
+- Returns the first index of the specified string or -1 if not found.
+```java
+String str = "Hello World";
+System.out.println(str.indexOf("World")); // Output: 6
+```
+### toUpperCase() / toLowerCase()
+- Converts all characters to uppercase or lowercase.
+
+```java
+String str = "Hello";
+System.out.println(str.toUpperCase()); // Output: HELLO
+System.out.println(str.toLowerCase()); // Output: hello
+```
+### trim()
+- Removes leading and trailing whitespace.
+```java
+String str = "   Hello   ";
+System.out.println(str.trim()); // Output: "Hello"
+```
+
+### replace(char oldChar, char newChar) / replace(CharSequence target, CharSequence replacement)
+- Replaces characters or sequences in the string.
+```java
+String str = "Hello";
+System.out.println(str.replace('e', 'a')); // Output: Hallo
+System.out.println(str.replace("Hello", "Hi")); // Output: Hi
+```
+### equals(Object obj) / equalsIgnoreCase(String anotherString)
+- Compares strings for equality.
+``` java
+String str1 = "Hello";
+String str2 = "hello";
+System.out.println(str1.equals(str2)); // Output: false
+System.out.println(str1.equalsIgnoreCase(str2)); // Output: true
+```
+### compareTo(String anotherString) / compareToIgnoreCase(String anotherString)
+- Compares two strings lexicographically.
+
+``` java
+String str1 = "Hello";
+String str2 = "World";
+System.out.println(str1.compareTo(str2)); // Output: a negative number
+```
+
+### isEmpty() / isBlank()
+- Checks if the string is empty or contains only whitespace.
+```java
+String str = "";
+System.out.println(str.isEmpty()); // Output: true
+String str2 = " ";
+System.out.println(str2.isBlank()); // Output: true
+```
+### join(CharSequence delimiter, CharSequence... elements)
+- Joins elements with a specified delimiter.
+```java
+String result = String.join(", ", "Java", "Python", "C++");
+System.out.println(result); // Output: Java, Python, C++
 ```
