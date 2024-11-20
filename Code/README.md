@@ -661,7 +661,7 @@ public class LoginSystem {
     }
 }
 ```
-# Class 7
+# Class 6
 ## String Functions in Java
 ### length()
 - Returns the number of characters in the string.
