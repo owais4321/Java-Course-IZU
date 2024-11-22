@@ -751,3 +751,4 @@ System.out.println(str2.isBlank()); // Output: true
 String result = String.join(", ", "Java", "Python", "C++");
 System.out.println(result); // Output: Java, Python, C++
 ```
+# Class 7
