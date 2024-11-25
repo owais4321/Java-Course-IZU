@@ -752,3 +752,241 @@ String result = String.join(", ", "Java", "Python", "C++");
 System.out.println(result); // Output: Java, Python, C++
 ```
 # Class 7
+
+# Puzzle Game in Java
+
+This Java program creates a simple 8-tile sliding puzzle game using Swing. The player can move numbered tiles into the empty space to arrange them in order.
+
+---
+
+## Program Overview
+
+- **Purpose**: Create an interactive 3x3 sliding puzzle.
+- **Key Features**:
+  - Buttons are manually positioned.
+  - Tiles can move to an adjacent empty space when clicked.
+
+---
+
+## Source Code
+
+```java
+import javax.swing.*;
+class Class7{
+    public static void main(String args[]){
+        JFrame f1 = new JFrame("Puzzle");
+        f1.setSize(600,600);
+        f1.setLayout(null);
+        //Create Buttons
+        JButton b1 = new JButton("1");
+        JButton b2 = new JButton("2");
+        JButton b3 = new JButton("3");
+        JButton b4 = new JButton("4");
+        JButton b5 = new JButton("5");
+        JButton b6 = new JButton("6");
+        JButton b7 = new JButton("7");
+        JButton b8 = new JButton("8");
+        JButton empty = new JButton("");
+
+        //Set bounds row1
+        b1.setBounds(0,0,200,200);
+        b2.setBounds(200,0,200,200);
+        b3.setBounds(400,0,200,200);
+        //set bounds row2
+        b4.setBounds(0,200,200,200);
+        b5.setBounds(200,200,200,200);
+        b6.setBounds(400,200,200,200);
+        //set bounds row3
+        b7.setBounds(0,400,200,200);
+        b8.setBounds(200,400,200,200);
+        empty.setBounds(400,400,200,200);
+
+        //add buttons
+        f1.add(b1);
+        f1.add(b2);
+        f1.add(b3);
+        f1.add(b4);
+        f1.add(b5);
+        f1.add(b6);
+        f1.add(b7);
+        f1.add(b8);
+        f1.add(empty);
+
+        b1.addActionListener(e->{
+            int b1x = b1.getBounds().x;
+            int b1y = b1.getBounds().y;
+            int emptyx = empty.getBounds().x;
+            int emptyy = empty.getBounds().y;
+            if((Math.abs(b1x-emptyx) == 200 && b1y == emptyy) || 
+            (Math.abs(b1y-emptyy)==200) && b1x == emptyx ){
+                b1.setBounds(emptyx,emptyy,200,200);
+                empty.setBounds(b1x,b1y,200,200);
+            }
+        });      
+
+        b2.addActionListener(e->{
+            int b2x = b2.getBounds().x;
+            int b2y = b2.getBounds().y;
+            int emptyx = empty.getBounds().x;
+            int emptyy = empty.getBounds().y;
+            if((Math.abs(b2x-emptyx) == 200 && b2y == emptyy) || 
+            (Math.abs(b2y-emptyy)==200) && b2x == emptyx ){
+                b2.setBounds(emptyx,emptyy,200,200);
+                empty.setBounds(b2x,b2y,200,200);
+            }
+        });  
+
+        b3.addActionListener(e->{
+            int b3x = b3.getBounds().x;
+            int b3y = b3.getBounds().y;
+            int emptyx = empty.getBounds().x;
+            int emptyy = empty.getBounds().y;
+            if((Math.abs(b3x-emptyx) == 200 && b3y == emptyy) || 
+            (Math.abs(b3y-emptyy)==200) && b3x == emptyx ){
+                b3.setBounds(emptyx,emptyy,200,200);
+                empty.setBounds(b3x,b3y,200,200);
+            }
+        });
+
+        b4.addActionListener(e->{
+            int b4x = b4.getBounds().x;
+            int b4y = b4.getBounds().y;
+            int emptyx = empty.getBounds().x;
+            int emptyy = empty.getBounds().y;
+            if((Math.abs(b4x-emptyx) == 200 && b4y == emptyy) || 
+            (Math.abs(b4y-emptyy)==200) && b4x == emptyx ){
+                b4.setBounds(emptyx,emptyy,200,200);
+                empty.setBounds(b4x,b4y,200,200);
+            }
+        });
+
+        b5.addActionListener(e->{
+            int b5x = b5.getBounds().x;
+            int b5y = b5.getBounds().y;
+            int emptyx = empty.getBounds().x;
+            int emptyy = empty.getBounds().y;
+            if((Math.abs(b5x-emptyx) == 200 && b5y == emptyy) || 
+            (Math.abs(b5y-emptyy)==200) && b5x == emptyx ){
+                b5.setBounds(emptyx,emptyy,200,200);
+                empty.setBounds(b5x,b5y,200,200);
+            }
+        });
+
+        b6.addActionListener(e->{
+            int b6x = b6.getBounds().x;
+            int b6y = b6.getBounds().y;
+            int emptyx = empty.getBounds().x;
+            int emptyy = empty.getBounds().y;
+            if((Math.abs(b6x-emptyx) == 200 && b6y == emptyy) || 
+            (Math.abs(b6y-emptyy)==200) && b6x == emptyx ){
+                b6.setBounds(emptyx,emptyy,200,200);
+                empty.setBounds(b6x,b6y,200,200);
+            }
+        });
+
+        b7.addActionListener(e->{
+            int b7x = b7.getBounds().x;
+            int b7y = b7.getBounds().y;
+            int emptyx = empty.getBounds().x;
+            int emptyy = empty.getBounds().y;
+            if((Math.abs(b7x-emptyx) == 200 && b7y == emptyy) || 
+            (Math.abs(b7y-emptyy)==200) && b7x == emptyx ){
+                b7.setBounds(emptyx,emptyy,200,200);
+                empty.setBounds(b7x,b7y,200,200);
+            }
+        });
+
+        b8.addActionListener(e->{
+            int b8x = b8.getBounds().x;
+            int b8y = b8.getBounds().y;
+            int emptyx = empty.getBounds().x;
+            int emptyy = empty.getBounds().y;
+            if((Math.abs(b8x-emptyx) == 200 && b8y == emptyy) || 
+            (Math.abs(b8y-emptyy)==200) && b8x == emptyx ){
+                b8.setBounds(emptyx,emptyy,200,200);
+                empty.setBounds(b8x,b8y,200,200);
+            }
+        });
+
+        f1.setVisible(true);
+    }
+}
+```
+### How to Run
+- Copy the source code into a file named Class7.java.
+- Compile the program using javac Class7.java.
+- Run the program using java Class7.
+- Click the tiles adjacent to the empty space to move them.
+- Solve the puzzle by arranging the tiles in ascending order.
+
+## Code Explanation
+### Purpose
+The program creates a simple 8-tile sliding puzzle game using Swing. The goal is to move numbered tiles into an empty space until the tiles are arranged in ascending order.
+
+### Key Components
+#### 1. JFrame
+Purpose: Acts as the main window for the puzzle game.
+```java
+JFrame f1 = new JFrame("Puzzle");
+f1.setSize(600, 600);
+f1.setLayout(null);
+setSize(600, 600): Defines the window size as 600x600 pixels.
+setLayout(null): Disables layout managers, allowing manual positioning of buttons.
+```
+#### 2. JButtons
+Purpose: Represent the puzzle tiles, numbered 1-8, and one empty space.
+```java
+JButton b1 = new JButton("1");
+JButton b2 = new JButton("2");
+...
+JButton empty = new JButton("");
+```
+Each tile is a button labeled with a number (except the empty one).
+Buttons are manually positioned using setBounds(x, y, width, height).
+#### 3. Button Placement
+Purpose: Organize the 9 buttons into a 3x3 grid.
+```java
+b1.setBounds(0, 0, 200, 200); // Top-left corner
+b2.setBounds(200, 0, 200, 200); // Top-center
+b3.setBounds(400, 0, 200, 200); // Top-right
+...
+empty.setBounds(400, 400, 200, 200); // Bottom-right
+```
+Each button has a size of 200x200.
+Button positions correspond to their place in the grid.
+#### 4. Event Handling (Action Listeners)
+Purpose: Allow tiles to move into the empty space when clicked.
+```java
+b1.addActionListener(e -> {
+    int b1x = b1.getBounds().x;
+    int b1y = b1.getBounds().y;
+    int emptyx = empty.getBounds().x;
+    int emptyy = empty.getBounds().y;
+    if ((Math.abs(b1x - emptyx) == 200 && b1y == emptyy) || 
+        (Math.abs(b1y - emptyy) == 200 && b1x == emptyx)) {
+        b1.setBounds(emptyx, emptyy, 200, 200); // Move button to empty space
+        empty.setBounds(b1x, b1y, 200, 200); // Move empty space to button's old position
+    }
+});
+```
+#### Steps:
+Get the coordinates of the current button (b1) and the empty button.
+Check if the clicked button is adjacent to the empty space:
+Horizontal adjacency: Difference in x coordinates is 200, and y coordinates are the same.
+Vertical adjacency: Difference in y coordinates is 200, and x coordinates are the same.
+If adjacent, swap the positions of the button and the empty space.
+#### 5. Puzzle Logic
+Key Condition: A button can only move if it's adjacent to the empty space.
+Repeat for All Buttons: Each button (b1, b2, ..., b8) has a similar ActionListener to handle movement.
+How It Works
+#### Setup:
+The game starts with buttons placed in a specific order on a 3x3 grid.
+#### Gameplay:
+Players click a button adjacent to the empty space.
+The clicked button moves into the empty space, and the empty space takes the clicked button’s original position.
+#### Goal: 
+Rearrange the tiles to the correct order (1-8), leaving the bottom-right corner empty.
+Additional Notes
+#### Grid Size: 
+The puzzle uses a 3x3 grid, so button sizes and positions are hardcoded for simplicity.
+No Shuffle Logic: The starting order of tiles is fixed, and the code doesn't shuffle the tiles initially.
