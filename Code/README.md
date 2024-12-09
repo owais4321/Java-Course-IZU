@@ -393,3 +393,276 @@ System.out.println("Bitwise XOR: " + (a ^ b));  // Output: 6 (Binary: 0110)
   - Bitwise Complement: `~a`
   - Left Shift: `a << 1`
   - Right Shift: `a >> 1`
+ 
+
+
+# Class 11 Java OOP Elements with Examples and Tasks
+
+## 1. **Class and Object**
+### Definition
+- **Class**: A blueprint for objects. Defines properties (fields) and behaviors (methods).
+- **Object**: An instance of a class.
+
+### Example
+```java
+class Car {
+    String brand;
+    int speed;
+
+    void drive() {
+        System.out.println(brand + " is driving at " + speed + " km/h.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Car car = new Car();
+        car.brand = "Toyota";
+        car.speed = 120;
+        car.drive();
+    }
+}
+```
+
+### Task
+- Create a `Person` class with fields `name` and `age`.
+- Add a method `introduce()` that prints a self-introduction.
+- Create an object of the `Person` class and call `introduce()`.
+
+---
+
+## 2. **Inheritance**
+### Definition
+- Mechanism where a class (subclass) acquires properties and behaviors of another class (superclass).
+
+### Example
+```java
+class Animal {
+    void eat() {
+        System.out.println("This animal eats food.");
+    }
+}
+
+class Dog extends Animal {
+    void bark() {
+        System.out.println("The dog barks.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Dog dog = new Dog();
+        dog.eat();
+        dog.bark();
+    }
+}
+```
+
+### Task
+- Create a superclass `Vehicle` with a method `move()`.
+- Create a subclass `Bicycle` that inherits from `Vehicle` and adds a method `ringBell()`.
+- Create an object of `Bicycle` and call both methods.
+
+---
+
+## 3. **Polymorphism**
+### Definition
+- Ability of a method or object to take multiple forms.
+- Two types:
+  - **Compile-time (Method Overloading)**
+  - **Runtime (Method Overriding)**
+
+### Example
+#### Method Overloading
+```java
+class Calculator {
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    double add(double a, double b) {
+        return a + b;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Calculator calc = new Calculator();
+        System.out.println(calc.add(5, 10));
+        System.out.println(calc.add(5.5, 10.5));
+    }
+}
+```
+
+#### Method Overriding
+```java
+class Animal {
+    void sound() {
+        System.out.println("Animals make sounds.");
+    }
+}
+
+class Cat extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Cat meows.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal myAnimal = new Cat();
+        myAnimal.sound();
+    }
+}
+```
+
+### Task
+- Implement method overloading in a `Printer` class with `print(int)`, `print(String)`, and `print(double)`.
+- Implement method overriding for a `Shape` superclass with a `draw()` method, and subclasses `Circle` and `Rectangle`.
+
+---
+
+## 4. **Encapsulation**
+### Definition
+- Bundling data and methods within a class, restricting direct access to some of its components.
+- Achieved using private fields and public getter/setter methods.
+
+### Example
+```java
+class BankAccount {
+    private double balance;
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        BankAccount account = new BankAccount();
+        account.deposit(500);
+        System.out.println("Balance: " + account.getBalance());
+    }
+}
+```
+
+### Task
+- Create a `Student` class with private fields `name` and `grade`.
+- Provide public getter and setter methods for these fields.
+- Ensure that `grade` cannot be set to a negative value.
+
+---
+
+## 5. **Abstraction**
+### Definition
+- Hiding implementation details and showing only essential features.
+- Achieved using abstract classes or interfaces.
+
+### Example
+#### Abstract Class
+```java
+abstract class Shape {
+    abstract void draw();
+}
+
+class Circle extends Shape {
+    @Override
+    void draw() {
+        System.out.println("Drawing a circle.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Shape shape = new Circle();
+        shape.draw();
+    }
+}
+```
+
+#### Interface
+```java
+interface Animal {
+    void eat();
+}
+
+class Cow implements Animal {
+    public void eat() {
+        System.out.println("Cow eats grass.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal animal = new Cow();
+        animal.eat();
+    }
+}
+```
+
+### Task
+- Create an abstract class `Appliance` with an abstract method `turnOn()`.
+- Create a subclass `Fan` that implements the `turnOn()` method.
+- Create an interface `Playable` with a method `play()` and a class `Piano` that implements it.
+
+---
+
+## 6. **Association, Aggregation, and Composition**
+### Definitions
+- **Association**: A general relationship between classes.
+- **Aggregation**: A "has-a" relationship with independent lifecycles.
+- **Composition**: A "has-a" relationship where the lifecycles are dependent.
+
+### Example
+#### Association
+```java
+class Driver {
+    String name;
+}
+
+class Car {
+    Driver driver;
+}
+```
+
+#### Aggregation
+```java
+class Engine {
+    void start() {
+        System.out.println("Engine starts.");
+    }
+}
+
+class Vehicle {
+    Engine engine = new Engine();
+
+    void drive() {
+        engine.start();
+        System.out.println("Vehicle is moving.");
+    }
+}
+```
+
+#### Composition
+```java
+class Library {
+    private Book book;
+
+    Library() {
+        book = new Book();
+    }
+}
+
+class Book {}
+```
+
+### Task
+- Implement an example of aggregation using a `Team` and `Player` class.
+- Implement an example of composition using a `House` and `Room` class.
