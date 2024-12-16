@@ -666,3 +666,305 @@ class Book {}
 ### Task
 - Implement an example of aggregation using a `Team` and `Player` class.
 - Implement an example of composition using a `House` and `Room` class.
+
+
+# Class 14 Java File Handling with Examples and Tasks
+
+## 1. **Introduction to File Handling**
+### Definition
+- File handling in Java allows you to read, write, and manipulate files.
+- Common classes used:
+  - `File`
+  - `FileReader` and `BufferedReader`
+  - `FileWriter` and `BufferedWriter`
+  - `Scanner`
+  - `PrintWriter`
+  - `Files` (from `java.nio.file`)
+
+---
+
+## 2. **Creating and Checking a File**
+### Example
+```java
+import java.io.File;
+import java.io.IOException;
+
+public class Main {
+    public static void main(String[] args) {
+        File file = new File("example.txt");
+        try {
+            if (file.createNewFile()) {
+                System.out.println("File created: " + file.getName());
+            } else {
+                System.out.println("File already exists.");
+            }
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Task
+- Write a program to check if a file named `data.txt` exists. If not, create the file.
+
+---
+
+## 3. **Writing to a File**
+### Example
+```java
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            FileWriter writer = new FileWriter("example.txt");
+            writer.write("Hello, world!\nWelcome to file handling in Java.");
+            writer.close();
+            System.out.println("Successfully wrote to the file.");
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Task
+- Write a program to write the numbers 1 to 10, each on a new line, into a file named `numbers.txt`.
+
+---
+
+## 4. **Reading from a File**
+### Example
+#### Using `FileReader`
+```java
+import java.io.FileReader;
+import java.io.BufferedReader;
+import java.io.IOException;
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("example.txt"));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+            reader.close();
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+#### Using `Scanner`
+```java
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            File file = new File("example.txt");
+            Scanner scanner = new Scanner(file);
+            while (scanner.hasNextLine()) {
+                System.out.println(scanner.nextLine());
+            }
+            scanner.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found.");
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Task
+- Write a program to read all lines from the file `data.txt` and print them to the console.
+
+---
+
+## 5. **Appending to a File**
+### Example
+```java
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            FileWriter writer = new FileWriter("example.txt", true); // Enable append mode
+            writer.write("\nThis line is appended.");
+            writer.close();
+            System.out.println("Successfully appended to the file.");
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Task
+- Write a program to append the current date and time to a file named `log.txt`.
+
+---
+
+## 6. **Deleting a File**
+### Example
+```java
+import java.io.File;
+
+public class Main {
+    public static void main(String[] args) {
+        File file = new File("example.txt");
+        if (file.delete()) {
+            System.out.println("Deleted the file: " + file.getName());
+        } else {
+            System.out.println("Failed to delete the file.");
+        }
+    }
+}
+```
+
+### Task
+- Write a program to delete a file named `temporary.txt` if it exists.
+
+---
+
+## 7. **Handling Binary Files**
+### Example
+#### Writing a Binary File
+```java
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            FileOutputStream output = new FileOutputStream("binary.dat");
+            output.write(new byte[]{65, 66, 67}); // Writing A, B, C
+            output.close();
+            System.out.println("Binary file written successfully.");
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+#### Reading a Binary File
+```java
+import java.io.FileInputStream;
+import java.io.IOException;
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            FileInputStream input = new FileInputStream("binary.dat");
+            int data;
+            while ((data = input.read()) != -1) {
+                System.out.print((char) data);
+            }
+            input.close();
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Task
+- Write a program to write the bytes of the string `"Hello Binary"` into a file named `output.dat` and then read it back.
+
+---
+
+## 8. **File Copy**
+### Example
+```java
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            FileInputStream input = new FileInputStream("source.txt");
+            FileOutputStream output = new FileOutputStream("destination.txt");
+
+            int data;
+            while ((data = input.read()) != -1) {
+                output.write(data);
+            }
+
+            input.close();
+            output.close();
+            System.out.println("File copied successfully.");
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Task
+- Write a program to copy the contents of a file named `input.txt` to another file named `output.txt`.
+
+---
+
+## 9. **Listing Files in a Directory**
+### Example
+```java
+import java.io.File;
+
+public class Main {
+    public static void main(String[] args) {
+        File directory = new File("./"); // Current directory
+        String[] files = directory.list();
+        if (files != null) {
+            for (String file : files) {
+                System.out.println(file);
+            }
+        } else {
+            System.out.println("Directory is empty or does not exist.");
+        }
+    }
+}
+```
+
+### Task
+- Write a program to list all files in a directory named `documents`.
+
+---
+
+## 10. **Error Handling in File Operations**
+### Example
+```java
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            File file = new File("nonexistent.txt");
+            FileReader reader = new FileReader(file);
+            reader.close();
+        } catch (IOException e) {
+            System.out.println("An error occurred: " + e.getMessage());
+        }
+    }
+}
+```
+
+### Task
+- Write a program to handle exceptions when trying to open a non-existent file named `missing.txt`.
