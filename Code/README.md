@@ -968,3 +968,101 @@ public class Main {
 
 ### Task
 - Write a program to handle exceptions when trying to open a non-existent file named `missing.txt`.
+
+# Class 16
+# Basics of Databases and Database Queries
+
+## What is a Database?
+A **database** is a structured collection of data that can be easily accessed, managed, and updated. Databases are used to store information in a way that is organized and allows for efficient querying and retrieval.
+
+### Types of Databases
+1. **Relational Databases (RDBMS)**: Store data in tables with rows and columns.  
+   Examples: MySQL, PostgreSQL, SQLite.
+2. **NoSQL Databases**: Designed for unstructured or semi-structured data.  
+   Examples: MongoDB, Cassandra, Redis.
+3. **In-Memory Databases**: Data is stored in RAM for fast access.  
+   Example: Redis.
+4. **Cloud Databases**: Hosted in the cloud, accessible remotely.  
+   Examples: Amazon RDS, Google Firebase.
+
+---
+
+## Key Concepts in Databases
+### 1. **Table**
+   - A table is a collection of rows and columns.
+   - Example:
+     | ID  | Name      | Age |
+     |-----|-----------|-----|
+     | 1   | Alice     | 25  |
+     | 2   | Bob       | 30  |
+
+### 2. **Row (Record)**
+   - A single, complete set of data in a table.  
+     Example: `(1, Alice, 25)`
+
+### 3. **Column (Field)**
+   - A specific attribute of a table.  
+     Example: `Name` in the table above.
+
+### 4. **Primary Key**
+   - A unique identifier for a record in a table.  
+     Example: `ID` in the table above.
+
+### 5. **Foreign Key**
+   - A field in one table that refers to the primary key in another table.
+
+---
+
+## Basic SQL Queries
+SQL (**Structured Query Language**) is used to interact with relational databases.
+
+### 1. **Create a Table**
+```sql
+CREATE TABLE users (
+    id INT PRIMARY KEY,
+    name VARCHAR(50),
+    age INT
+);
+``` 
+2. Insert Data into a Table
+sql
+
+INSERT INTO users (id, name, age)
+VALUES (1, 'Alice', 25), (2, 'Bob', 30);
+3. Retrieve Data from a Table
+Retrieve All Data:
+
+sql
+
+SELECT * FROM users;
+Output:
+
+id	name	age
+1	Alice	25
+2	Bob	30
+
+Retrieve Specific Columns:
+
+sql
+
+SELECT name, age FROM users;
+Filter Data Using WHERE:
+
+sql
+
+SELECT * FROM users WHERE age > 25;
+4. Update Data
+sql
+
+UPDATE users
+SET age = 26
+WHERE id = 1;
+5. Delete Data
+sql
+
+DELETE FROM users WHERE id = 2;
+6. Drop a Table
+sql
+
+DROP TABLE users;
+Example Use Case: Library Database
