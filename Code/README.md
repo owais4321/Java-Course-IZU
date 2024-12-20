@@ -1024,17 +1024,19 @@ CREATE TABLE users (
     age INT
 );
 ``` 
-2. Insert Data into a Table
-sql
+### 2. Insert Data into a Table
+```sql
 
 INSERT INTO users (id, name, age)
 VALUES (1, 'Alice', 25), (2, 'Bob', 30);
-3. Retrieve Data from a Table
-Retrieve All Data:
+```
 
-sql
+### 3. Retrieve Data from a Table
+Retrieve All Data:
+```sql
 
 SELECT * FROM users;
+```
 Output:
 
 id	name	age
@@ -1043,26 +1045,30 @@ id	name	age
 
 Retrieve Specific Columns:
 
-sql
+```sql
 
 SELECT name, age FROM users;
+```
 Filter Data Using WHERE:
 
-sql
+```sql
 
 SELECT * FROM users WHERE age > 25;
-4. Update Data
-sql
+```
+### 4. Update Data
+```sql
 
 UPDATE users
 SET age = 26
 WHERE id = 1;
-5. Delete Data
-sql
+```
+### 5. Delete Data
+```sql
 
 DELETE FROM users WHERE id = 2;
-6. Drop a Table
-sql
+```
+### 6. Drop a Table
+```sql
 
 DROP TABLE users;
-Example Use Case: Library Database
+```
