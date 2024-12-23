@@ -25,7 +25,4 @@ The game consists of 24 puzzle pieces and an empty space. Players can move the p
 
 ### Installation
 
-1. Clone the repository:
 
-   ```bash
-   git clone https://github.com/scana1405/puzzle-game.git
